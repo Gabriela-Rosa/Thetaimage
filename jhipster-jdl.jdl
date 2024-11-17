@@ -1,0 +1,87 @@
+enum TipoUsuario{
+ 	ADMINISTRADOR,
+    USUARIO
+}
+
+
+entity Usuario {
+    nome String
+    email String
+    senha String
+    tipo TipoUsuario
+}
+
+entity Dataset {
+    nome String
+    descricao TextBlob
+    diferencaMinima Double
+}
+
+entity Etiqueta {
+	nome String
+}
+
+entity Classe {
+	nome String
+}
+
+entity Conjunto {
+    nome String
+}
+
+entity Etiquetagem {
+  	x Double
+    y Double
+    largura Double
+    altura Double
+}
+
+entity Imagem {
+   nome String
+   caminho String
+   mimeType String
+   largura Integer
+   altura Integer
+   dados ImageBlob
+}
+
+relationship ManyToOne {
+	Dataset{usuario} to Usuario
+}
+relationship ManyToOne {
+	Etiqueta{dataset} to Dataset
+}
+relationship ManyToOne {
+	Classe{dataset} to Dataset
+}
+
+relationship ManyToOne {
+	Conjunto{dataset} to Dataset
+}
+
+relationship ManyToOne {
+	Etiquetagem{etiqueta} to Etiqueta
+}
+
+relationship ManyToOne {
+	Etiquetagem{imagem} to Imagem
+}
+
+relationship ManyToOne {
+	Imagem{dataset} to Dataset
+}
+
+relationship ManyToOne {
+	Imagem{conjunto} to Conjunto
+}
+
+relationship ManyToOne {
+	Imagem{classe} to Classe
+}
+
+
+
+// Set pagination options
+paginate all with infinite-scroll
+
+

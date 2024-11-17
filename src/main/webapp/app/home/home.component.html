@@ -1,0 +1,41 @@
+<div class="row cor-fundo p-2">
+  <div class="col-md-3 cor-fundo">
+    <span class="hipster img-fluid rounded"></span>
+  </div>
+
+  <div class="col-md-9 cor-fundo">
+    <h1 class="display-4 text-white fw-bolder"><span>Bem vindo ao Thetaimage!</span></h1>
+
+    <h2 class="lead text-white">Um gerenciador de datasets voltado para o treinamento de imagens computacionais. Nosso objetivo é oferecer uma ferramenta intuitiva, confiável e amigável, ideal tanto para iniciantes quanto para profissionais experientes, trazendo praticidade para o seu trabalho. <br>
+      Além de gerenciar e organizar as imagens do seu dataset, o ThetaImage conta com uma ferramenta de etiquetagem manual, que permite categorizar imagens e marcar objetos presentes nelas, facilitando a criação do seu próprio dataset personalizado.<br>
+
+      Para professores que coordenam projetos com muitos alunos, disponibilizamos contas administradoras, permitindo que equipes trabalhem de forma colaborativa dentro da plataforma.<br>
+
+      E o melhor: somos um serviço gratuito, criado para ajudar você a montar o dataset que precisa, sem complicações.<br>
+
+      <p class="fw-bolder mt-2 mb-2">
+        ThetaImage: praticidade e eficiência na criação do seu dataset.
+      </p>
+    </h2>
+
+    <div>
+      @if (account() !== null) {
+        <div class="alert cor-fundo-alerta text-white fw-bolder">
+          @if (account(); as accountRef) {
+            <span id="home-logged-message">Você está logado como &quot;{{ accountRef.login }}&quot;.</span>
+          }
+        </div>
+      } @else {
+        <div class="text-white text-bold">
+          <span>Se deseja </span>
+          <a class="alert-link text-white text-bold" (click)="login()">entrar</a>
+        </div>
+
+        <div class="text-white">
+          <span>Não possui uma conta ainda?</span>&nbsp;
+          <a class="alert-link text-white" routerLink="/account/register">Crie uma nova conta</a>
+        </div>
+      }
+    </div>
+  </div>
+</div>
